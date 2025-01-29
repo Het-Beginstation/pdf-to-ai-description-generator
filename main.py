@@ -1,9 +1,11 @@
 import os
-from genai_utils import configure_genai, generate_descriptions
-from excel_utils import save_to_excel, adjust_excel_formatting
-from colorama import init, Fore, Style
+from colorama import init, Fore
 from prompt_toolkit import prompt
 from prompt_toolkit.styles import Style as PTStyle
+
+from excel_utils import save_to_excel, adjust_excel_formatting
+from genai_utils import configure_genai, generate_descriptions
+
 
 # Function to create a colored prompt
 def colored_prompt(message, color):
