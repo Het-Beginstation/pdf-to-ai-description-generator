@@ -5,20 +5,22 @@ It uses the Gemini API to get the data and then generates a description based on
 
 ## Pre-requisites
 
-- Python 3.x
-- Pip (Python package manager)
+- [Python](https://www.python.org/downloads/) 3.x
+- [Pip](https://pypi.org/project/pip/) (Python package manager)
+- Gemini API key, which you could get it from [Gemini API](https://ai.google.dev/gemini-api/docs)
 
 ## Installation
 
 1. Clone the repository:
    ```sh
-   git clone
-   cd
+   git clone https://github.com/KurodaKJ/pdf-to-ai-description-generator.git
+   cd pdf-to-ai-description-generator
    ```
    
-2. Create a virtual environment:
+2. Create and activate a virtual environment:
    ```sh
    python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
    ```
    
 3. Install the required packages
@@ -28,7 +30,9 @@ It uses the Gemini API to get the data and then generates a description based on
    
 ## Usage
 
-1. Run the script:
+1. Put your PDF files in the `downloads` folder.
+
+2. Run the script:
    ```sh
    python main.py
    ```
