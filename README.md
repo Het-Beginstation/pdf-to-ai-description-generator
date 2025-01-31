@@ -39,5 +39,5 @@ It uses the Gemini API to get the data and then generates a description based on
 
 ## Contributing
 
-Contributions are welcome! Please open an issue or submit a pull request.
+Contributions are welcome! Please open an [issue](https://github.com/KurodaKJ/pdf-to-ai-description-generator/issues) or submit a [pull request](https://github.com/KurodaKJ/pdf-to-ai-description-generator/pulls).
    
