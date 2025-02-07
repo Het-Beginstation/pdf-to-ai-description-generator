@@ -25,8 +25,8 @@ def main():
     parser = argparse.ArgumentParser(description="Generate AI descriptions from PDFs.")
     parser.add_argument("-system_instruction", type=str, required=True, help="System instruction for the AI")
     parser.add_argument("-apiKey", type=str, required=True, help="GEMINI API key")
-    parser.add_argument("-model", type=str, default="gemini-1.5-flash", help="Model name (default: gemini-1.5-flash)")
-    parser.add_argument("-max_requests", type=int, default=3, help="Maximum number of requests (default: 3)")
+    parser.add_argument("-model", type=str, default="gemini-2.0-flash", help="Model name (default: gemini-2.0-flash)")
+    parser.add_argument("-max_requests", type=int, default=10, help="Maximum number of requests (default: 10)")
 
     args = parser.parse_args()
 
