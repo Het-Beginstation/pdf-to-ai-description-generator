@@ -34,7 +34,10 @@ It uses the Gemini API to get the data and then generates a description based on
 
 2. Run the script:
    ```sh
-   python main.py
+   python main.py -system_instruction "your_system_instruction_here" -apiKey "your_api_key_here"
+   # Optional argument 
+   # -model "your_prefered_model" (default: gemini-2.0-flash)
+   # -max_requests "your_prefered_maximum_output" (default: 10)
    ```
 
 ## Contributing

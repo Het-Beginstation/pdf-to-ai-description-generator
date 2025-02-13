@@ -1,4 +1,5 @@
 import os
+import argparse
 from colorama import init, Fore
 from prompt_toolkit import prompt
 from prompt_toolkit.styles import Style as PTStyle
@@ -7,7 +8,7 @@ from excel_utils import save_to_excel, adjust_excel_formatting
 from genai_utils import configure_genai, generate_descriptions
 
 
-# Function to create a colored prompt
+# Function to create a colored prompt (no longer used for input)
 def colored_prompt(message, color):
     custom_style = PTStyle.from_dict({
         'prompt': color
@@ -20,27 +21,21 @@ def main():
 
     print(Fore.CYAN + "Welcome to the PDF to AI Description Generator!")
 
-    # Prompt user for GEMINI API key, model name, and max requests
-    api_key = colored_prompt("Please enter your GEMINI API key and press Enter: ", 'fg:yellow')
-    model_name = colored_prompt("Please enter the model name and press Enter (default: 'gemini-1.5-flash'): ", 'fg:yellow') or "gemini-1.5-flash"
-    max_requests = colored_prompt("Please enter the maximum number of requests and press Enter (default: 3): ", 'fg:yellow') or "3"
+    # Set up argument parser
+    parser = argparse.ArgumentParser(description="Generate AI descriptions from PDFs.")
+    parser.add_argument("-system_instruction", type=str, required=True, help="System instruction for the AI")
+    parser.add_argument("-apiKey", type=str, required=True, help="GEMINI API key")
+    parser.add_argument("-model", type=str, default="gemini-2.0-flash", help="Model name (default: gemini-2.0-flash)")
+    parser.add_argument("-max_requests", type=int, default=10, help="Maximum number of requests (default: 10)")
 
-    # Validate max_requests input
-    try:
-        max_requests = int(max_requests)
-    except ValueError:
-        print(Fore.RED + "Invalid input for maximum number of requests. Please enter a valid integer.")
-        return
+    args = parser.parse_args()
 
-    # Prompt user for system instruction
-    print(colored_prompt("Please enter your system instruction (type 'END' on a new line to finish):", 'fg:yellow'))
-    system_instruction = []
-    while True:
-        line = colored_prompt("", 'fg:green')
-        if line == 'END':
-            break
-        system_instruction.append(line)
-    system_instruction = "\n".join(system_instruction)
+    # Retrieve values from arguments
+    api_key = args.apiKey
+    model_name = args.model
+    max_requests = args.max_requests
+    system_instruction = args.system_instruction
+
 
     # Define directories and output file
     pdf_directory = 'downloads'
